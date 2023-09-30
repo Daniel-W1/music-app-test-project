@@ -1,13 +1,6 @@
 {
   "songs": [
     {
-      "id": 2,
-      "title": "(I Can't Get No) ",
-      "artist": "The Rolling Stones",
-      "album": "Out of Our Heads",
-      "year": "1965"
-    },
-    {
       "id": 6,
       "title": "Good Vibrations ",
       "artist": "The Beach Boys",
