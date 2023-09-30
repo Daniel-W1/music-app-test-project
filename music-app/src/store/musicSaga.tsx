@@ -63,7 +63,7 @@ function* deleteSong(action:{
   payload: number;
 }): Generator<any, void, AxiosResponse<SongType>> {
   try {
-    const response: AxiosResponse<SongType> = yield call(() => {
+    yield call(() => {
       return axios.delete(`http://localhost:3000/songs/${action.payload}`).then((res) => res);
     });
     

@@ -16,14 +16,17 @@ export const musicSlice = createSlice({
 
     addSong: (state, action) => {
         state.isLoading = true;
+        action.payload = action.payload
     },
 
     editSong: (state, action) => {
         state.isLoading = true;
+        action.payload = action.payload
     },
 
     deleteSong: (state, action) => {
         state.isLoading = true;
+        action.payload = action.payload
     },
 
     getAddSongSuccess: (state, action) => {        
