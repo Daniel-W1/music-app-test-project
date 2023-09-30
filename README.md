@@ -18,6 +18,6 @@ npm run json:server
 2. Navigate to the `frontend` directory by using the `cd` command:
 
 ```bash
-cd frontend
+cd music-app
 npm run dev
 ```
