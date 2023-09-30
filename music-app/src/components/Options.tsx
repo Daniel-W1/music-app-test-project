@@ -5,7 +5,6 @@ import { GiLoveSong } from 'react-icons/gi'
 import { IoIosAlbums } from 'react-icons/io'
 
 import styled from '@emotion/styled'
-import { useState, useEffect } from 'react'
 import { css } from '@emotion/css'
 
 
@@ -19,6 +18,10 @@ const Container = styled.div`
     padding: 10px 20px;
     box-sizing: border-box;
     border-right: 1px solid #333333;
+
+    @media(max-width: 900px){
+        display: none;
+    }
 `
 
 const LogoContainer = styled.div`
@@ -57,25 +60,6 @@ const ItemContainer = styled.div`
 `
 
 const OptionsSidebar = () => {
-
-    const [smallScreen, setSmallScreen] = useState<boolean>(false)
-
-    useEffect(() => {
-        const handleResize = () => {
-            if(window.innerWidth < 950) {
-                setSmallScreen(true)
-            } else {
-                setSmallScreen(false)
-            }
-        }
-        window.addEventListener('resize', handleResize);
-    
-        return () => {
-          window.removeEventListener('resize', handleResize);
-        };
-      }, []);
-    
-
     
     const Menu: object[] = [
         {
@@ -112,10 +96,6 @@ const OptionsSidebar = () => {
         path: '/liked-songs'
     }
     ]
-
-    if(smallScreen) {
-        return
-    }
 
     return (
         <Container>
