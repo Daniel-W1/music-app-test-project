@@ -3,10 +3,12 @@ import { getAddSongSuccess, getDeleteSongSuccess, getEditSongSuccess, getMusicSu
 import axios, { AxiosResponse } from 'axios';
 import { SongType } from '../types';
 
+const deployed_backend = "https://vibes-music-app.onrender.com"
+
 function* getMusic(): Generator<any, void, AxiosResponse<SongType>> {
   try {
     const response: AxiosResponse<SongType> = yield call(() => {
-      return axios.get("http://localhost:3000/songs").then((res) => res);
+      return axios.get(`${deployed_backend}/songs`).then((res) => res);
     });
     yield put(getMusicSuccess(response.data));
   } catch (err) {
@@ -25,7 +27,7 @@ function* addMusic(action: {
 }): Generator<any, void, AxiosResponse<SongType>> {
   try {
     const response: AxiosResponse<SongType> = yield call(() => {
-      return axios.post("http://localhost:3000/songs", action.payload).then((res) => res);
+      return axios.post(`${deployed_backend}/songs`, action.payload).then((res) => res);
     });
     yield put(getAddSongSuccess(response.data));
   } catch (err) {
@@ -50,7 +52,7 @@ function* editSong(action: {
     console.log("[EDITING SONG]", action.payload);
     
     const response: AxiosResponse<SongType> = yield call(() => {
-      return axios.put(`http://localhost:3000/songs/${action.payload.id}`, action.payload).then((res) => res);
+      return axios.put(`${deployed_backend}/songs/${action.payload.id}`, action.payload).then((res) => res);
     });
     yield put(getEditSongSuccess(response.data));
   } catch (err) {
@@ -64,7 +66,7 @@ function* deleteSong(action:{
 }): Generator<any, void, AxiosResponse<SongType>> {
   try {
     yield call(() => {
-      return axios.delete(`http://localhost:3000/songs/${action.payload}`).then((res) => res);
+      return axios.delete(`${deployed_backend}/songs/${action.payload}`).then((res) => res);
     });
     
     

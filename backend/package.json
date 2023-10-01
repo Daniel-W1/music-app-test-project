@@ -2,9 +2,8 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "json:server": "json-server --watch db.json"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
